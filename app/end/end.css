@@ -1,0 +1,115 @@
+/* ── 04 / evasive EXIT button ───────────────────────────────────────── */
+
+/* the section becomes the positioning context so the button never shifts
+   the layout or escapes into another section */
+.hire {
+  position: relative;
+  overflow: hidden;
+}
+
+.exit-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 20px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--ink);
+  font: 700 12px/1 monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* while evasive, it floats in the footer's lower-right and moves quickly */
+.exit-btn--evasive {
+  z-index: 4;
+  transform-origin: 50% 50%;
+  transition:
+    left 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: left, top, transform;
+}
+
+/* static (touch / reduced-motion) fallback sits normally in the footer */
+.exit-btn:not(.exit-btn--evasive) {
+  margin-top: 22px;
+  align-self: flex-start; /* don't stretch to full width in the column flex */
+}
+
+.exit-btn.is-caught {
+  background: var(--orange);
+  transition: left 0.2s, top 0.2s, transform 0.2s, background 0.2s;
+}
+
+.exit-btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exit-btn--evasive {
+    transition: none;
+  }
+}
+
+/* ── minimal email capture (placeholder, no backend) ────────────────── */
+.signup {
+  max-width: 400px;
+  margin: 40px 0 0;
+}
+.signup-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #55554d;
+  font: 12px/1.4 monospace;
+  letter-spacing: 0.02em;
+}
+.signup-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--ink);
+  transition: border-color 0.2s;
+}
+.signup-row:focus-within {
+  border-color: var(--orange);
+}
+.signup-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 15px/1 monospace;
+  outline: none;
+}
+.signup-input::placeholder {
+  color: #a8a69c;
+}
+.signup-btn {
+  padding: 6px 4px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.signup-btn:hover {
+  color: var(--orange);
+  transform: translateX(3px);
+}
+.signup-btn:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+.signup-done {
+  margin: 10px 0 0;
+  color: #55554d;
+  font: 12px/1.4 monospace;
+}

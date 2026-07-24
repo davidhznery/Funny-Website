@@ -1,0 +1,51 @@
+/* ── UNNECESSARY LAB™ — an idea bouncing toward a solution ───────────── */
+.lab-stage {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+  bottom: 44px;
+  overflow: hidden;
+}
+
+/* the idea */
+.lab-idea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  background: var(--ink);
+  border-radius: 9px;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* the knowledge burst */
+.lab-word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  color: var(--ink);
+  font: 700 11px/1 monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* the impact ripple */
+.lab-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 46px;
+  border: 2px solid var(--ink);
+  border-radius: 11px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}

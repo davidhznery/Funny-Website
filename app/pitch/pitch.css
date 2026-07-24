@@ -1,0 +1,180 @@
+/* ── 01 / THE PITCH — fork meme interaction ─────────────────────────── */
+.pitch {
+  background: var(--paper);
+  color: var(--ink);
+}
+.pitch .section-label {
+  color: #8c8b82;
+}
+.pitch-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4vw;
+  align-items: center;
+  margin-top: 6vw;
+  min-height: 56vh;
+}
+.pitch-main {
+  min-width: 0;
+}
+.pitch-headline {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(46px, 8vw, 132px);
+  line-height: 0.86;
+  letter-spacing: -0.09em;
+}
+.pitch-sometimes {
+  display: block;
+  margin-top: 0.14em;
+  font-size: 0.34em;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--orange);
+}
+
+/* thin outlined buttons */
+.pitch-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 3vw;
+}
+.pitch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: 700 14px/1 monospace;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.pitch-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.pitch-btn:hover .pitch-btn-arrow {
+  color: var(--orange);
+}
+.pitch-btn.is-active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--paper);
+}
+.pitch-btn.is-active .pitch-btn-arrow {
+  color: var(--ink);
+}
+.pitch-btn-arrow {
+  font-size: 16px;
+  color: var(--orange);
+  transition: color 0.2s ease;
+}
+.pitch-btn:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.pitch-message {
+  min-height: 1.4em;
+  margin: 26px 0 0;
+  color: #55554d;
+  font: 13px/1.5 monospace;
+  letter-spacing: 0.02em;
+}
+
+/* meme stage */
+.pitch-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44vh;
+}
+.pitch-meme {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 46vh;
+  object-fit: contain;
+  will-change: transform, opacity;
+  filter: drop-shadow(6px 10px 0 rgba(21, 21, 18, 0.08));
+}
+/* the confetti sprite is much wider — let it use the full column */
+.pitch-meme--learn {
+  max-height: 40vh;
+  max-width: 100%;
+}
+
+/* idle watching eyes */
+.pitch-eyes {
+  width: min(360px, 62%);
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* the little fragment the thief yanks off the page */
+.pitch-drag {
+  position: absolute;
+  left: 6%;
+  top: 34%;
+  z-index: 2;
+  padding: 6px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--lime);
+  color: var(--ink);
+  font: 700 11px monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pitch-btn,
+  .pitch-btn-arrow {
+    transition: none;
+  }
+}
+
+/* mobile: meme drops below the buttons, never beside the headline */
+@media (max-width: 800px) {
+  .pitch-grid {
+    display: block;
+    margin-top: 9vw;
+    min-height: 0;
+  }
+  .pitch-headline {
+    font-size: clamp(44px, 15vw, 88px);
+  }
+  .pitch-buttons {
+    margin-top: 8vw;
+  }
+  .pitch-stage {
+    min-height: 0;
+    margin-top: 9vw;
+    justify-content: flex-start;
+  }
+  .pitch-meme {
+    max-height: 34vh;
+  }
+  .pitch-meme--learn {
+    max-height: 28vh;
+  }
+  .pitch-drag {
+    display: none;
+  }
+  /* eyes sit beneath the buttons at a smaller scale on mobile */
+  .pitch-eyes {
+    width: min(200px, 60%);
+  }
+}
