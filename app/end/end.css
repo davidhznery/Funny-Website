@@ -55,7 +55,7 @@
   }
 }
 
-/* ── minimal email capture (placeholder, no backend) ────────────────── */
+/* ── minimal email capture (posts to /api/newsletter, stored in D1) ─── */
 .signup {
   max-width: 400px;
   margin: 40px 0 0;
@@ -111,5 +111,10 @@
 .signup-done {
   margin: 10px 0 0;
   color: #55554d;
+  font: 12px/1.4 monospace;
+}
+.signup-error {
+  margin: 10px 0 0;
+  color: var(--orange);
   font: 12px/1.4 monospace;
 }

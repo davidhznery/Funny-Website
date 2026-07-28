@@ -18,7 +18,7 @@ export const forkConfig: Record<ForkModeId, ForkMode> = {
     image: "/memes/fork-stalk.png",
     alt: "Fork character wearing sunglasses, pointing knowingly",
     message: "Fine. Let’s investigate my professional life.",
-    url: "https://www.linkedin.com/", // TODO: real LinkedIn profile URL
+    url: "https://www.linkedin.com/in/david-hernandez-nery/",
   },
   steal: {
     label: "Steal my ideas",
@@ -26,7 +26,7 @@ export const forkConfig: Record<ForkModeId, ForkMode> = {
     image: "/memes/fork-steal.png",
     alt: "Fork character holding a handle aloft, ready to swipe something",
     message: "At least pretend they were inspired by me.",
-    url: "https://github.com/", // TODO: real projects / ideas URL
+    url: "https://www.youtube.com/@davidhernandez2975",
   },
   learn: {
     label: "Learn with me",

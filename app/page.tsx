@@ -47,7 +47,9 @@ export default function Home() {
           <p className="hero-note">I build useful things<br />with suspicious confidence.</p>
           <a
             className="hero-cta"
-            href="#hire"
+            href="https://wa.me/35679510315"
+            target="_blank"
+            rel="noreferrer"
             style={{ transform: `translate(${ctaOffset.x}px, ${ctaOffset.y}px)` }}
             onMouseMove={moveCta}
             onMouseLeave={() => setCtaOffset({ x: 0, y: 0 })}
@@ -85,8 +87,8 @@ export default function Home() {
         <p className="hire-sub">Or normal. I&apos;m flexible like that.</p>
         <div className="contact-row">
           <a className="contact-link" href="tel:+35679510315">+356 7951 0315 <span>↗</span></a>
-          <a className="contact-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
-          <a className="contact-link" href="mailto:your@email.com">your@email.com <span>↗</span></a>
+          <a className="contact-link" href="https://www.linkedin.com/in/david-hernandez-nery/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+          <a className="contact-link" href="mailto:david@nerylab.com">david@nerylab.com <span>↗</span></a>
         </div>
         <EmailCapture />
         <div className="footer-row"><span>Nery● 2025 — made with unreasonable attention to detail</span></div>
