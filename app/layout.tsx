@@ -72,22 +72,38 @@ export const metadata: Metadata = {
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": `${siteUrl}/#nery`,
-  name: "NERY",
-  url: siteUrl,
-  description,
-  knowsAbout: [
-    "Artificial Intelligence",
-    "AI Automation",
-    "AI Agents",
-    "AI Workflows",
-    "Workflow Automation",
-    "Intelligent Systems",
-    "Productivity",
-    "Process Automation",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: title,
+      alternateName: "NERY",
+      description,
+      inLanguage: "en",
+      publisher: {
+        "@id": `${siteUrl}/#nery`,
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#nery`,
+      name: "NERY",
+      url: siteUrl,
+      description,
+      knowsAbout: [
+        "Artificial Intelligence",
+        "AI Automation",
+        "AI Agents",
+        "AI Workflows",
+        "Workflow Automation",
+        "Intelligent Systems",
+        "Productivity",
+        "Process Automation",
+      ],
+      sameAs: ["https://www.linkedin.com/in/david-hernandez-nery/"],
+    },
   ],
-  sameAs: ["https://www.linkedin.com/in/david-hernandez-nery/"],
 };
 
 export default function RootLayout({
