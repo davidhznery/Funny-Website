@@ -20,7 +20,7 @@ export default function Home() {
   const [toast, setToast] = useState(false);
   const [ctaOffset, setCtaOffset] = useState({ x: 0, y: 0 });
 
-  const moveCta = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const moveCta = (event: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
     setCtaOffset({ x: (event.clientX - (rect.left + rect.width / 2)) * 0.24, y: (event.clientY - (rect.top + rect.height / 2)) * 0.24 });
   };

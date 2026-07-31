@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import CookieConsent from "./CookieConsent";
 import "./globals.css";
 
 const siteUrl = "https://www.nerylab.com";
@@ -117,6 +118,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <CookieConsent />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
