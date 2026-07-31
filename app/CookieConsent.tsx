@@ -6,7 +6,6 @@ const measurementId =
   process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || "G-018PKKRW0C";
 const consentKey = "nerylab_analytics_consent";
 const consentEvent = "nerylab-consent-change";
-const googleTagId = "nerylab-google-tag";
 
 type ConsentChoice = "accepted" | "rejected" | null;
 
@@ -51,12 +50,6 @@ function enableAnalytics() {
   ] = false;
 
   const gtag = getGoogleTag();
-  gtag("consent", "default", {
-    analytics_storage: "denied",
-    ad_storage: "denied",
-    ad_user_data: "denied",
-    ad_personalization: "denied",
-  });
   gtag("consent", "update", {
     analytics_storage: "granted",
     ad_storage: "denied",
@@ -67,14 +60,6 @@ function enableAnalytics() {
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
   });
-
-  if (!document.getElementById(googleTagId)) {
-    const script = document.createElement("script");
-    script.id = googleTagId;
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    document.head.appendChild(script);
-  }
 }
 
 function removeAnalyticsCookies() {
@@ -101,7 +86,6 @@ function disableAnalytics() {
   (window as unknown as Record<string, boolean>)[
     `ga-disable-${measurementId}`
   ] = true;
-  document.getElementById(googleTagId)?.remove();
   removeAnalyticsCookies();
 }
 
@@ -155,7 +139,7 @@ export default function CookieConsent() {
         <h2 id="cookie-title">A tiny privacy decision.</h2>
         <p id="cookie-description">
           I&apos;d like to use Google Analytics to learn what people actually
-          find useful here. Nothing is sent to Google unless you say yes.
+          find useful here. No analytics data is collected unless you say yes.
         </p>
         <button
           className="cookie-details-toggle"
