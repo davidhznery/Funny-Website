@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:-G-018PKKRW0C}
     container_name: funny-website
     restart: unless-stopped
     ports:
@@ -10,4 +12,12 @@ services:
     environment:
       NODE_ENV: production
       PORT: "3000"
-      HOST: "0.0.0.0"
+      HOSTNAME: "0.0.0.0"
+      DATABASE_PATH: /data/funny-website.sqlite
+      SENDER_API_TOKEN: ${SENDER_API_TOKEN}
+      SENDER_GROUP_ID: ${SENDER_GROUP_ID}
+    volumes:
+      - funny-website-data:/data
+
+volumes:
+  funny-website-data:

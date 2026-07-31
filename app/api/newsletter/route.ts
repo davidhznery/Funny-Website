@@ -1,5 +1,4 @@
-import { getDb } from "../../../db";
-import { subscribers } from "../../../db/schema";
+import { addSubscriber } from "../../../db";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SENDER_API_URL = "https://api.sender.net/v2/subscribers";
@@ -53,8 +52,7 @@ async function subscribeWithSender(email: string) {
 
 async function saveLocally(email: string) {
   try {
-    const db = getDb();
-    await db.insert(subscribers).values({ email });
+    addSubscriber(email);
   } catch (error) {
     const message = error instanceof Error ? error.message : "";
 
