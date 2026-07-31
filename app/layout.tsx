@@ -7,6 +7,23 @@ const siteUrl = "https://www.nerylab.com";
 const title = "NERY | Building with AI";
 const description =
   "Building AI automations, agents and useful systems. Sharing what works, documenting the process and making technology more practical.";
+const configuredAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+const googleAnalyticsId =
+  configuredAnalyticsId && /^G-[A-Z0-9]+$/.test(configuredAnalyticsId)
+    ? configuredAnalyticsId
+    : "G-018PKKRW0C";
+const googleConsentDefaults = {
+  analytics_storage: "denied",
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
+};
+const googleTagBootstrap = `
+window.dataLayer = window.dataLayer || [];
+window.gtag = window.gtag || function gtag(){window.dataLayer.push(arguments);};
+window.gtag('consent', 'default', ${JSON.stringify(googleConsentDefaults)});
+window.gtag('js', new Date());
+`;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,6 +131,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          id="nerylab-google-consent-defaults"
+          dangerouslySetInnerHTML={{ __html: googleTagBootstrap }}
+        />
+        <script
+          id="nerylab-google-tag"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
