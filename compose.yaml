@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:-}
     container_name: funny-website
     restart: unless-stopped
     ports:
@@ -11,3 +13,4 @@ services:
       NODE_ENV: production
       PORT: "3000"
       HOST: "0.0.0.0"
+      NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:-}
