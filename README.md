@@ -16,6 +16,20 @@ npm run dev
 npm run build
 ```
 
+## Google Analytics
+
+The site sends page views to the Google Analytics 4 web data stream
+`G-018PKKRW0C` only after a visitor accepts optional analytics cookies in the
+consent banner. Rejecting consent prevents the Google tag from loading, and the
+persistent Cookies control lets visitors change or withdraw their choice.
+
+To use a different stream, copy `.env.example` to `.env` and replace
+`G-XXXXXXXXXX` with the new Measurement ID.
+
+For Docker deployments, keep the same value in the `.env` file next to
+`compose.yaml`, then rebuild the image so Next.js includes it in the production
+bundle.
+
 This starter does not use `wrangler.jsonc`.
 
 ## Included Shape

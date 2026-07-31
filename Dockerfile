@@ -6,6 +6,8 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
+ARG NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
+ENV NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=$NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
 RUN npm run build
 
 ENV NODE_ENV=production
