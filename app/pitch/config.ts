@@ -26,7 +26,7 @@ export const forkConfig: Record<ForkModeId, ForkMode> = {
     image: "/memes/fork-steal.png",
     alt: "Fork character holding a handle aloft, ready to swipe something",
     message: "At least pretend they were inspired by me.",
-    url: "https://www.youtube.com/@davidhernandez2975",
+    url: "https://www.youtube.com/@nerylab",
   },
   learn: {
     label: "Learn with me",
